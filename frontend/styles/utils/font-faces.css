@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'NewYork';
+    font-style: normal;
+    font-weight: 400;
+    src: local('NewYork'), local('NewYork'), url('../../public/fonts/NewYork.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Mona Sans';
+    src: url('../../public/fonts/Mona-Sans.woff2') format('woff2 supports variations'),
+    url('../../public/fonts/Mona-Sans.woff2') format('woff2-variations');
+    font-weight: 200 900;
+    font-stretch: 75% 125%;
+}
