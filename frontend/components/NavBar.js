@@ -4,7 +4,7 @@ import styles from '../styles/NavBar.module.scss';
 const NavBar = () => {
     return (
         <>
-            <div className={styles.navbar}>
+            <div className={styles.navbar} id={'navbar'}>
                 <div className={styles.logo}>
                     <p>arthurvera</p>
                 </div>

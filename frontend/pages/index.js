@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Banner from '../components/Banner'
+import Intro from "@/components/Intro";
 
 export default function Home() {
     return (
@@ -21,6 +22,7 @@ export default function Home() {
 
             <main>
                 <Banner/>
+                <Intro/>
 
             </main>
         </>
