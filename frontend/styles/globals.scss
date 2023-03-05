@@ -1,8 +1,19 @@
+
+
 :root {
 }
 
 $font-base : 'Mona Sans', sans-serif;
 $font-alt : 'NewYork', serif;
+
+@font-face {
+  font-family: 'Dahlia';
+  src: url('../public/fonts/Dahlia-Medium.woff2') format('woff2'),
+  url('../public/fonts/Dahlia-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
 
 @font-face {
   font-family: 'NewYork';

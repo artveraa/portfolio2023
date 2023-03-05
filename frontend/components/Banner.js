@@ -26,6 +26,9 @@ const Banner = () => {
     const leftTextRef = useRef(null);
     const surnameRef = useRef(null);
     const nameRef = useRef(null);
+    const rightTextRef = useRef(null);
+    const jobPart1Ref = useRef(null);
+    const jobPart2Ref = useRef(null);
 
     useEffect(() => {
 		if (hasRendered) {
@@ -41,11 +44,17 @@ const Banner = () => {
 			});
 
 			gsap.set(leftTextRef.current, {autoAlpha: 0, y: 100});
+            gsap.set(rightTextRef.current, {autoAlpha: 0, y: 100});
 
 			tl.to("#navbar", {y: -100, duration: .3, ease: "power2.out"})
 				.to(introRef.current, {y: 100, duration: .3, autoAlpha: 0, ease: "power2.out"})
 				.to(containerImgRef.current, {scale: .7, duration: .3, ease: "power2.out"})
                 .to(leftTextRef.current, {y: 0, autoAlpha: 1, duration: .3, ease: "power2.out"})
+                .to(surnameRef.current, {x: -20, duration: .3, ease: "power2.out"}, "-=.3")
+                .to(nameRef.current, {x: 20, duration: .3, ease: "power2.out"}, "-=.3")
+                .to(rightTextRef.current, {y: 0, autoAlpha: 1, duration: .3, ease: "power2.out"}, "-=.3")
+                .to(jobPart1Ref.current, {x: -20, duration: .3, ease: "power2.out"}, "-=.3")
+                .to(jobPart2Ref.current, {x: 20, duration: .3, ease: "power2.out"}, "-=.3")
 		}
 
     }, [hasRendered]);
@@ -80,12 +89,12 @@ const Banner = () => {
                     </div>
                 </div>
 
-                <div className={styles.rightTextContainer} >
-                    <div className={styles.jobPart1}>
+                <div className={styles.rightTextContainer} ref={rightTextRef}>
+                    <div className={styles.jobPart1} ref={jobPart1Ref}>
                         front-end
                     </div>
 
-                    <div className={styles.jobPart2}>
+                    <div className={styles.jobPart2} ref={jobPart2Ref}>
                         developer
                     </div>
                 </div>
