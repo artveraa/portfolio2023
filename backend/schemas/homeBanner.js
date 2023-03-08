@@ -1,23 +1,12 @@
 export default {
-    name: 'homeBanner',
-    title: 'Home Banner',
+    name: 'hero',
+    title: 'Hero Banner',
     type: 'document',
     fields: [
         {
             name: 'description',
             title: 'Description',
             type: 'text',
-            options: {
-                isHighlighted: true
-            }
-        },
-        {
-            name: 'image',
-            title: 'Image',
-            type: 'image',
-            options: {
-                hotspot: true,
-            }
         },
         {
             name: 'name',
@@ -38,6 +27,6 @@ export default {
             name: 'jobPart2',
             title: 'Job part 2',
             type: 'string',
-        },
+        }
     ]
 }

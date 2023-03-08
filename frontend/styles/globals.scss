@@ -30,6 +30,15 @@ $font-alt : 'NewYork', serif;
   font-stretch: 75% 125%;
 }
 
+@font-face {
+  font-family: 'Oroban Elegans';
+  src: url('../public/fonts/OrobanElegans-Medium.woff2') format('woff2'),
+  url('../public/fonts/OrobanElegans-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 
 * {
   box-sizing: border-box;

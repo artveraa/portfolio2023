@@ -25,17 +25,17 @@
       object-fit: cover;
     }
 
-    &:before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 200%;
-      height: 200%;
-      background-color: rgba(0, 0, 0, 0.9);
-      z-index: 1;
-    }
+    //&:before {
+    //  content: '';
+    //  position: absolute;
+    //  top: 50%;
+    //  left: 50%;
+    //  transform: translate(-50%, -50%);
+    //  width: 200%;
+    //  height: 200%;
+    //  background-color: rgba(0, 0, 0, 0.9);
+    //  z-index: 1;
+    //}
   }
 
   .intro {
@@ -48,8 +48,9 @@
 
     .introText {
       color: #FFFFFF;
-      font-size: 2rem;
+      font-size: 2.3rem;
       font-variation-settings: 'wdth' 100, 'wght' 200;
+      text-transform: uppercase;
 
       span {
         font-family: Dahlia, serif;
@@ -64,31 +65,22 @@
   .leftTextContainer {
     display: block;
     position: absolute;
-    top: 25%;
+    top: 50%;
     left: 9%;
-    transform: translate(0, -25%);
+    transform: translate(0, -50%);
 
     .surname,
     .name {
       font-size: 7rem;
       color: #FFFFFF;
       margin: 0;
+      font-family: "Oroban Elegans", serif;
+      text-transform: uppercase;
+      -webkit-font-smoothing: antialiased;
     }
 
-    .surname {
-      font-family: Dahlia, sans-serif;
-      font-variation-settings: 'wdth' 100, 'wght' 100;
-      line-height: 70%;
-    }
-
-    .name {
-      font-family: Dahlia, serif;
-      font-variation-settings: 'wdth' 100, 'wght' 400;
-      background-clip: text;
-      -webkit-background-clip: text;
-      background-image: linear-gradient(270deg, #7f02fc -50%, #349bd5);
-      color: transparent;
-      line-height: 100%;
+    .surname + .name {
+      margin-top: -2.5rem;
     }
 
   }
@@ -96,30 +88,16 @@
   .rightTextContainer {
     display: block;
     position: absolute;
-    top: 53%;
+    top:63%;
     right: 9%;
 
     .jobPart1,
     .jobPart2 {
-      font-size: 7rem;
+      font-size: 2.3rem;
       color: #FFFFFF;
       margin: 0;
-    }
-
-    .jobPart2 {
-      font-family: Mona Sans, sans-serif;
-      font-variation-settings: 'wdth' 100, 'wght' 100;
-      line-height: 70%;
-    }
-
-    .jobPart1 {
-      font-family: Dahlia, serif;
-      font-variation-settings: 'wdth' 100, 'wght' 400;
-      background-clip: text;
-      -webkit-background-clip: text;
-      background-image: linear-gradient(270deg, #7f02fc -50%, #349bd5);
-      color: transparent;
-      line-height: 100%;
+      font-variation-settings: 'wdth' 100, 'wght' 200;
+      text-transform: uppercase;
     }
 
   }
