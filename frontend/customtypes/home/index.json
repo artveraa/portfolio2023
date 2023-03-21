@@ -1,0 +1,55 @@
+{
+  "id": "home",
+  "label": "Accueil",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "backgroundImage": {
+        "type": "Image",
+        "config": {
+          "label": "Background",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "introduction": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Introduction",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "surname": {
+        "type": "Text",
+        "config": {
+          "label": "Prénom",
+          "placeholder": ""
+        }
+      },
+      "name": {
+        "type": "Text",
+        "config": {
+          "label": "Nom",
+          "placeholder": ""
+        }
+      },
+      "job_part_1": {
+        "type": "Text",
+        "config": {
+          "label": "Job Part 1",
+          "placeholder": ""
+        }
+      },
+      "job_part_2": {
+        "type": "Text",
+        "config": {
+          "label": "Job Part 2",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}

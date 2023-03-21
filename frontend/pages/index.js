@@ -41,7 +41,6 @@ export default function Home({home}) {
             <main id={'smooth-wrapper'}>
                 <div id="smooth-content">
                     <Banner background={home.data.backgroundImage} introduction={home.data.introduction[0].text} surname={home.data.surname} name={home.data.name} jobPart1={home.data.job_part_1} jobPart2={home.data.job_part_2}/>
-                    <Introduction introduction={home.data.slices[0].primary.textIntro[0].text}/>
                     <PortfolioGrid/>
                 </div>
             </main>

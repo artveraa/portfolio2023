@@ -1,4 +1,55 @@
 .portfolioGrid {
-  height: 100vh;
-  border: solid 1px red;
+	min-height: 100vh;
+	border: solid 1px red;
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	grid-template-rows: repeat(14, 9vh);
+
+
+	.portfolioGrid__item {
+
+		&:nth-child(1) {
+			background-color: lightcoral;
+			grid-column: 1 / 5;
+			grid-row: 1 / 4;
+		}
+
+		&:nth-child(2) {
+			background-color: lightblue;
+			grid-column: 10 / 13;
+			grid-row: 1 / 6;
+		}
+
+		&:nth-child(3) {
+			background-color: lightgreen;
+			grid-column: 6 / span 3;
+			grid-row: 4 / span 4;
+		}
+
+		&:nth-child(4) {
+			background-color: lightpink;
+			grid-column: 1 / span 4;
+			grid-row: 7 / span 5;
+		}
+
+		&:nth-child(5) {
+			background-color: lightyellow;
+			grid-column: 7 / span 5;
+			grid-row: 9 / span 3;
+		}
+
+		&:nth-child(6) {
+			background-color: lightgray;
+			grid-column: 2 / span 5;
+			grid-row: 13 / span 2;
+		}
+
+
+		.inner {
+			position: relative;
+			border: solid 1px red;
+			height: 100%;
+			width: 100%;
+		}
+	}
 }

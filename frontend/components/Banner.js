@@ -9,7 +9,7 @@ import {SplitText} from "gsap/dist/SplitText";
 
 
 const Banner = (props) => {
-    console.log(props)
+
     const [hasRendered, setHasRendered] = useState(false);
 
     useEffect(() => {
@@ -19,6 +19,8 @@ const Banner = (props) => {
     if (typeof window !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger, SplitText);
     }
+
+
 
     const introRef = useRef(null);
     const maskRef = useRef(null);
@@ -33,7 +35,20 @@ const Banner = (props) => {
 
     useEffect(() => {
         if (hasRendered) {
-            const tl = gsap.timeline({
+
+			// const tl = gsap.timeline({
+			// 	once: true,
+			// });
+			//
+			// gsap.set(containerImgRef.current, {scale: 1.2});
+			// gsap.set(introRef.current, { y:100, autoAlpha: 0});
+			// gsap.set('#navbar', { y:-100, autoAlpha: 0});
+			//
+			// tl.to(containerImgRef.current, {scale: 1, duration: 1, ease: "power2.out"})
+			// .to(introRef.current, {y: 0, autoAlpha: 1, duration: 1, ease: "power2.out"}, "-=.8")
+			// .to('#navbar', {y: 0, autoAlpha: 1, duration: 1, ease: "power2.out"}, "-=.8")
+
+            const tl2 = gsap.timeline({
                 scrollTrigger: {
                     trigger: banner.current,
                     start: 'bottom bottom',
@@ -48,7 +63,7 @@ const Banner = (props) => {
             gsap.set(leftTextRef.current, {autoAlpha: 0, y: 100});
             gsap.set(rightTextRef.current, {autoAlpha: 0, y: 100});
 
-            tl.to("#navbar", {y: -100, duration: .3, ease: "power2.out"})
+            tl2.to("#navbar", {y: -100, duration: .3, ease: "power2.out"})
                 .to(introRef.current, {y: 100, duration: .3, autoAlpha: 0, ease: "power2.out"})
                 .to(containerImgRef.current, {scale: .6, duration: .3, ease: "power2.out"})
                 .to(leftTextRef.current, {y: 0, autoAlpha: 1, duration: .3, ease: "power2.out"})
