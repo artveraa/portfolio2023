@@ -1,6 +1,6 @@
 {
   "id": "home",
-  "label": "Accueil",
+  "label": "accueil",
   "repeatable": false,
   "status": true,
   "json": {
@@ -8,7 +8,7 @@
       "backgroundImage": {
         "type": "Image",
         "config": {
-          "label": "Background",
+          "label": "Image de fond",
           "constraint": {},
           "thumbnails": []
         }
@@ -39,14 +39,14 @@
       "job_part_1": {
         "type": "Text",
         "config": {
-          "label": "Job Part 1",
+          "label": "Job part 1",
           "placeholder": ""
         }
       },
       "job_part_2": {
         "type": "Text",
         "config": {
-          "label": "Job Part 2",
+          "label": "Job part 2",
           "placeholder": ""
         }
       }
