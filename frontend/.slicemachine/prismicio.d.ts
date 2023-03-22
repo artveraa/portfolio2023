@@ -6,10 +6,10 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = {
     [KeyType in keyof T]: T[KeyType];
 };
-/** Content for Accueil documents */
+/** Content for accueil documents */
 interface HomeDocumentData {
     /**
-     * Background field in *Accueil*
+     * Image de fond field in *accueil*
      *
      * - **Field Type**: Image
      * - **Placeholder**: *None*
@@ -20,7 +20,7 @@ interface HomeDocumentData {
      */
     backgroundImage: prismicT.ImageField<never>;
     /**
-     * Introduction field in *Accueil*
+     * Introduction field in *accueil*
      *
      * - **Field Type**: Rich Text
      * - **Placeholder**: *None*
@@ -31,7 +31,7 @@ interface HomeDocumentData {
      */
     introduction: prismicT.RichTextField;
     /**
-     * Prénom field in *Accueil*
+     * Prénom field in *accueil*
      *
      * - **Field Type**: Text
      * - **Placeholder**: *None*
@@ -42,7 +42,7 @@ interface HomeDocumentData {
      */
     surname: prismicT.KeyTextField;
     /**
-     * Nom field in *Accueil*
+     * Nom field in *accueil*
      *
      * - **Field Type**: Text
      * - **Placeholder**: *None*
@@ -53,7 +53,7 @@ interface HomeDocumentData {
      */
     name: prismicT.KeyTextField;
     /**
-     * Job Part 1 field in *Accueil*
+     * Job part 1 field in *accueil*
      *
      * - **Field Type**: Text
      * - **Placeholder**: *None*
@@ -64,7 +64,7 @@ interface HomeDocumentData {
      */
     job_part_1: prismicT.KeyTextField;
     /**
-     * Job Part 2 field in *Accueil*
+     * Job part 2 field in *accueil*
      *
      * - **Field Type**: Text
      * - **Placeholder**: *None*
@@ -76,7 +76,7 @@ interface HomeDocumentData {
     job_part_2: prismicT.KeyTextField;
 }
 /**
- * Accueil document from Prismic
+ * accueil document from Prismic
  *
  * - **API ID**: `home`
  * - **Repeatable**: `false`
@@ -85,12 +85,86 @@ interface HomeDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type HomeDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
-export type AllDocumentTypes = HomeDocument;
+/** Content for projet documents */
+interface ProjectDocumentData {
+    /**
+     * Vignette field in *projet*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: project.thumbnail
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    thumbnail: prismicT.ImageField<never>;
+    /**
+     * Titre field in *projet*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: project.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+}
+/**
+ * projet document from Prismic
+ *
+ * - **API ID**: `project`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ProjectDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<ProjectDocumentData>, "project", Lang>;
+export type AllDocumentTypes = HomeDocument | ProjectDocument;
+/**
+ * Primary content in Introduction → Primary
+ *
+ */
+interface IntroductionSliceDefaultPrimary {
+    /**
+     * Introduction field in *Introduction → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: introduction.primary.textIntro
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    textIntro: prismicT.RichTextField;
+}
+/**
+ * Default variation for Introduction Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Introduction`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type IntroductionSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<IntroductionSliceDefaultPrimary>, never>;
+/**
+ * Slice variation for *Introduction*
+ *
+ */
+type IntroductionSliceVariation = IntroductionSliceDefault;
+/**
+ * Introduction Shared Slice
+ *
+ * - **API ID**: `introduction`
+ * - **Description**: `Introduction`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type IntroductionSlice = prismicT.SharedSlice<"introduction", IntroductionSliceVariation>;
 declare module "@prismicio/client" {
     interface CreateClient {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { HomeDocumentData, HomeDocument, AllDocumentTypes };
+        export type { HomeDocumentData, HomeDocument, ProjectDocumentData, ProjectDocument, AllDocumentTypes, IntroductionSliceDefaultPrimary, IntroductionSliceDefault, IntroductionSliceVariation, IntroductionSlice };
     }
 }

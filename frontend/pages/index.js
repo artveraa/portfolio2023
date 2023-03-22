@@ -8,9 +8,11 @@ import {useEffect} from "react";
 import gsap from "gsap/dist/gsap";
 import Introduction from "@/components/Introduction";
 import PortfolioGrid from "@/components/PortfolioGrid";
+import Layout from "@/components/Layout";
 
-export default function Home({home}) {
-    console.log(home.data.surname)
+export default function Home({home, projects}) {
+
+
     if (typeof window !== 'undefined') {
         gsap.registerPlugin(ScrollSmoother);
     }
@@ -38,12 +40,16 @@ export default function Home({home}) {
                 />
             </Head>
 
-            <main id={'smooth-wrapper'}>
-                <div id="smooth-content">
-                    <Banner background={home.data.backgroundImage} introduction={home.data.introduction[0].text} surname={home.data.surname} name={home.data.name} jobPart1={home.data.job_part_1} jobPart2={home.data.job_part_2}/>
-                    <PortfolioGrid/>
-                </div>
-            </main>
+            <Layout>
+                <main id={'smooth-wrapper'}>
+                    <div id="smooth-content">
+                        <Banner background={home.data.backgroundImage} introduction={home.data.introduction[0].text}
+                                surname={home.data.surname} name={home.data.name} jobPart1={home.data.job_part_1}
+                                jobPart2={home.data.job_part_2}/>
+                        <PortfolioGrid projects={projects}/>
+                    </div>
+                </main>
+            </Layout>
         </>
     )
 }
@@ -52,10 +58,13 @@ export async function getStaticProps() {
     const client = prismic.createClient(sm.apiEndpoint)
 
     const home = await client.getSingle('home')
+    const projects = await client.getAllByType('project')
+
 
     return {
         props: {
-            home,
+            home: home,
+            projects: projects
         }
     }
 
