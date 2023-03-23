@@ -57,14 +57,19 @@ export default function Home({home, projects}) {
 export async function getStaticProps() {
     const client = prismic.createClient(sm.apiEndpoint)
 
-    const home = await client.getSingle('home')
-    const projects = await client.getAllByType('project')
+    const home = await client.getSingle('home');
+    const projects = await client.getAllByType('project', {
+		orderings: [
+			{ field: 'my.project.date', direction: 'desc'},
+			{ field: 'document.first_publication_date', direction: 'desc'}
+		],
+    });
 
 
     return {
         props: {
-            home: home,
-            projects: projects
+            home,
+            projects
         }
     }
 
