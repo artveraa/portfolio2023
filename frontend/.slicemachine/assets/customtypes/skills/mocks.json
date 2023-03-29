@@ -1,0 +1,18 @@
+{
+  "title": {
+    "__TYPE__": "FieldContent",
+    "value": "somebody",
+    "type": "Text"
+  },
+  "content": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "paragraph",
+        "content": {
+          "text": "Velit voluptate reprehenderit voluptate ea ut voluptate veniam laboris. Dolore quis enim do culpa commodo veniam cupidatat anim consectetur laborum fugiat dolore tempor. Veniam mollit labore id consequat nulla adipisicing minim occaecat adipisicing esse."
+        }
+      }
+    ]
+  }
+}

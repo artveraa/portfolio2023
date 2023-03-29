@@ -120,7 +120,42 @@ interface ProjectDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type ProjectDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<ProjectDocumentData>, "project", Lang>;
-export type AllDocumentTypes = HomeDocument | ProjectDocument;
+/** Content for competences documents */
+interface SkillsDocumentData {
+    /**
+     * Titre field in *competences*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: skills.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+    /**
+     * Contenu field in *competences*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: skills.content
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    content: prismicT.RichTextField;
+}
+/**
+ * competences document from Prismic
+ *
+ * - **API ID**: `skills`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SkillsDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<SkillsDocumentData>, "skills", Lang>;
+export type AllDocumentTypes = HomeDocument | ProjectDocument | SkillsDocument;
 /**
  * Primary content in Introduction → Primary
  *
@@ -165,6 +200,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { HomeDocumentData, HomeDocument, ProjectDocumentData, ProjectDocument, AllDocumentTypes, IntroductionSliceDefaultPrimary, IntroductionSliceDefault, IntroductionSliceVariation, IntroductionSlice };
+        export type { HomeDocumentData, HomeDocument, ProjectDocumentData, ProjectDocument, SkillsDocumentData, SkillsDocument, AllDocumentTypes, IntroductionSliceDefaultPrimary, IntroductionSliceDefault, IntroductionSliceVariation, IntroductionSlice };
     }
 }

@@ -1,10 +1,9 @@
 
-
 :root {
 }
 
-$font-base : 'Mona Sans', sans-serif;
-$font-alt : 'NewYork', serif;
+$font-base: 'Mona Sans', sans-serif;
+$font-alt: 'NewYork', serif;
 
 @font-face {
   font-family: 'Dahlia';
@@ -39,6 +38,15 @@ $font-alt : 'NewYork', serif;
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Apoc Revelations';
+  src: url('../public/fonts/Apoc-Revelations-Variable[wght].woff2') format('woff2'),
+  url('../public/fonts/Apoc-Revelations-Variable[wght].woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 
 * {
   box-sizing: border-box;
@@ -51,7 +59,29 @@ body {
   font-size: clamp(14px, 1.5vw, 18px);
   font-family: $font-base;
   font-variation-settings: 'wght' 100, 'wdth' 100;
+}
 
+h2 {
+  font-size: 2rem;
+  color: #FFFFFF;
+  padding: 0 3rem 3rem 10rem;
+  font-family: "Mona Sans", sans-serif;
+  position: relative;
+  font-variation-settings: 'wght' 100, 'wdth' 100;
+  text-transform: uppercase;
+  width: fit-content;
+
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: .9em;
+    left: 0;
+    width: 9rem;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+    z-index: -1;
+  }
 }
 
 body {

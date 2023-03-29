@@ -3,26 +3,18 @@ import sm from '../sm.json'
 import Head from 'next/head'
 import Image from 'next/image'
 import Banner from '../components/Banner'
-import {ScrollSmoother} from "gsap/dist/ScrollSmoother";
 import {useEffect} from "react";
 import gsap from "gsap/dist/gsap";
 import Introduction from "@/components/Introduction";
 import PortfolioGrid from "@/components/PortfolioGrid";
 import Layout from "@/components/Layout";
+import Skills from "@/components/Skills";
 
-export default function Home({home, projects}) {
+export default function Home({home, projects, skills}) {
 
 
-    if (typeof window !== 'undefined') {
-        gsap.registerPlugin(ScrollSmoother);
-    }
-    useEffect(() => {
-        new ScrollSmoother.create({
-            smooth: 1,
-            effect: true,
-            smoothTouch: .1,
-        });
-    })
+
+
 
     return (
         <>
@@ -41,14 +33,11 @@ export default function Home({home, projects}) {
             </Head>
 
             <Layout>
-                <main id={'smooth-wrapper'}>
-                    <div id="smooth-content">
-                        <Banner background={home.data.backgroundImage} introduction={home.data.introduction[0].text}
-                                surname={home.data.surname} name={home.data.name} jobPart1={home.data.job_part_1}
-                                jobPart2={home.data.job_part_2}/>
-                        <PortfolioGrid projects={projects}/>
-                    </div>
-                </main>
+                <Banner background={home.data.backgroundImage} introduction={home.data.introduction[0].text}
+                        surname={home.data.surname} name={home.data.name} jobPart1={home.data.job_part_1}
+                        jobPart2={home.data.job_part_2}/>
+                <Skills skills={skills}/>
+                <PortfolioGrid projects={projects}/>
             </Layout>
         </>
     )
@@ -59,12 +48,14 @@ export async function getStaticProps() {
 
     const home = await client.getSingle('home')
     const projects = await client.getAllByType('project')
+    const skills = await client.getAllByType('skills')
 
 
     return {
         props: {
             home: home,
-            projects: projects
+            projects: projects,
+            skills: skills
         }
     }
 

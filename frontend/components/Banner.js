@@ -6,8 +6,6 @@ import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
 import {SplitText} from "gsap/dist/SplitText";
 
 
-
-
 const Banner = (props) => {
 
     const [hasRendered, setHasRendered] = useState(false);
@@ -21,10 +19,9 @@ const Banner = (props) => {
     }
 
 
-
     const introRef = useRef(null);
     const maskRef = useRef(null);
-    const containerImgRef = useRef(null);
+    //const containerImgRef = useRef(null);
     const banner = useRef(null);
     const leftTextRef = useRef(null);
     const surnameRef = useRef(null);
@@ -36,17 +33,17 @@ const Banner = (props) => {
     useEffect(() => {
         if (hasRendered) {
 
-			// const tl = gsap.timeline({
-			// 	once: true,
-			// });
-			//
-			// gsap.set(containerImgRef.current, {scale: 1.2});
-			// gsap.set(introRef.current, { y:100, autoAlpha: 0});
-			// gsap.set('#navbar', { y:-100, autoAlpha: 0});
-			//
-			// tl.to(containerImgRef.current, {scale: 1, duration: 1, ease: "power2.out"})
-			// .to(introRef.current, {y: 0, autoAlpha: 1, duration: 1, ease: "power2.out"}, "-=.8")
-			// .to('#navbar', {y: 0, autoAlpha: 1, duration: 1, ease: "power2.out"}, "-=.8")
+            // const tl = gsap.timeline({
+            // 	once: true,
+            // });
+            //
+            // gsap.set(containerImgRef.current, {scale: 1.2});
+            // gsap.set(introRef.current, { y:100, autoAlpha: 0});
+            // gsap.set('#navbar', { y:-100, autoAlpha: 0});
+            //
+            // tl.to(containerImgRef.current, {scale: 1, duration: 1, ease: "power2.out"})
+            // .to(introRef.current, {y: 0, autoAlpha: 1, duration: 1, ease: "power2.out"}, "-=.8")
+            // .to('#navbar', {y: 0, autoAlpha: 1, duration: 1, ease: "power2.out"}, "-=.8")
 
             const tl2 = gsap.timeline({
                 scrollTrigger: {
@@ -54,7 +51,7 @@ const Banner = (props) => {
                     start: 'bottom bottom',
                     end: '+=1000',
                     scrub: true,
-                   // markers: true,
+                    // markers: true,
                     pin: true,
                     pinSpacing: true,
                 },
@@ -65,7 +62,7 @@ const Banner = (props) => {
 
             tl2.to("#navbar", {y: -100, duration: .3, ease: "power2.out"})
                 .to(introRef.current, {y: 100, duration: .3, autoAlpha: 0, ease: "power2.out"})
-                .to(containerImgRef.current, {scale: .6, duration: .3, ease: "power2.out"})
+                .to(maskRef.current, {width: '50%', height: '50%', duration: .3, ease: "power2.out"})
                 .to(leftTextRef.current, {y: 0, autoAlpha: 1, duration: .3, ease: "power2.out"})
                 .from(surnameRef.current, {x: -20, duration: .3, ease: "power2.out"}, "-=.3")
                 .from(nameRef.current, {x: 20, duration: .3, ease: "power2.out"}, "-=.3")
@@ -80,38 +77,40 @@ const Banner = (props) => {
     return (
         <>
             <div className={styles.banner} ref={banner}>
-                <div className="mask" ref={maskRef}>
-                    <div className={styles.imgContainer} ref={containerImgRef}>
-                        <img src={props.background.url} alt="background" />
+                <div className={styles.mask} ref={maskRef}>
+                    <div className={styles.imgContainer}>
+                        <img src={props.background.url} alt="background"/>
                         {/*<video autoPlay muted loop id="myVideo">*/}
                         {/*    <source src="/videos/bg.mp4" type="video/mp4"/>*/}
                         {/*</video>*/}
                     </div>
+
+                    <div className={styles.leftTextContainer} ref={leftTextRef}>
+                        <div className={styles.surname} ref={surnameRef}>
+                            {props.surname}
+                        </div>
+                        <div className={styles.name} ref={nameRef}>
+                            {props.name}
+                        </div>
+                    </div>
+
+                    <div className={styles.rightTextContainer} ref={rightTextRef}>
+                        <div className={styles.jobPart1} ref={jobPart1Ref}>
+                            {props.jobPart1}
+                        </div>
+
+                        <div className={styles.jobPart2} ref={jobPart2Ref}>
+                            {props.jobPart2}
+                        </div>
+                    </div>
                 </div>
                 <div className={styles.intro} ref={introRef}>
                     <div className={styles.introText}>
-                         {props.introduction}
+                        {props.introduction}
                     </div>
                 </div>
 
-                <div className={styles.leftTextContainer} ref={leftTextRef}>
-                    <div className={styles.surname} ref={surnameRef}>
-                        {props.surname}
-                    </div>
-                    <div className={styles.name} ref={nameRef}>
-                        {props.name}
-                    </div>
-                </div>
 
-                <div className={styles.rightTextContainer} ref={rightTextRef}>
-                    <div className={styles.jobPart1} ref={jobPart1Ref}>
-                        {props.jobPart1}
-                    </div>
-
-                    <div className={styles.jobPart2} ref={jobPart2Ref}>
-                        {props.jobPart2}
-                    </div>
-                </div>
 
             </div>
         </>

@@ -46,24 +46,28 @@ const PortfolioGrid = (props) => {
 
 
     return (
-        <div className={styles.portfolioGrid} ref={gridRef}>
+        <>
+            <h2>Projects</h2>
+            <div className={styles.portfolioGrid} ref={gridRef}>
 
-            {
-                props.projects.map((project) => {
-                    return (
+                {
+                    props.projects.map((project) => {
+                        return (
 
-                        <Link key={project.uid} href={`projets/${project.uid}`} className={styles.portfolioGrid__item + ' item'}
-                              ref={gridItemRef}>
-                            <div className={styles.inner}>
-                                <img src={project.data.thumbnail.url} alt=""/>
-                                <h3>{project.data.title}</h3>
-                            </div>
-                        </Link>
+                            <Link key={project.uid} href={`projets/${project.uid}`}
+                                  className={styles.portfolioGrid__item + ' item'}
+                                  ref={gridItemRef}>
+                                <div className={styles.inner}>
+                                    <img src={project.data.thumbnail.url} alt=""/>
+                                    <h3>{project.data.title}</h3>
+                                </div>
+                            </Link>
 
-                    )
-                })
-            }
-        </div>
+                        )
+                    })
+                }
+            </div>
+        </>
     );
 }
 
