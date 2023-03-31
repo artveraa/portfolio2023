@@ -25,8 +25,6 @@ const PortfolioGrid = (props) => {
 	useEffect(() => {
 		if (hasRendered) {
 			const items = gridRef.current.querySelectorAll('.item');
-
-			console.log(props.projects)
 			const tl = gsap.timeline({
 				scrollTrigger: {
 					trigger: gridRef.current,

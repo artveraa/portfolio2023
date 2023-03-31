@@ -1,0 +1,37 @@
+{
+  "id": "projects",
+  "label": "Projets",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "projectTitle": {
+        "type": "Text",
+        "config": {
+          "label": "Titre du projet",
+          "placeholder": ""
+        }
+      },
+      "thumbnail": {
+        "type": "Image",
+        "config": {
+          "label": "Vignette",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "category": {
+        "type": "Select",
+        "config": {
+          "label": "Catégorie",
+          "placeholder": "",
+          "options": [
+            "dev",
+            "rédaction",
+            "design"
+          ]
+        }
+      }
+    }
+  }
+}

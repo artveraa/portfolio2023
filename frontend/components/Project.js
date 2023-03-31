@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export const Project = ({project}) => {
-	console.log(project)
+
 	return (
 		<div className={styles.portfolioGrid__item + ' item'}>
 			<Link href={`projets/${project.uid}`}>
