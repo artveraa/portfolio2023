@@ -49,6 +49,23 @@
           "label": "Job part 2",
           "placeholder": ""
         }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "skills": {
+              "type": "SharedSlice"
+            },
+            "projects_list": {
+              "type": "SharedSlice"
+            },
+            "tools": {
+              "type": "SharedSlice"
+            }
+          }
+        }
       }
     }
   }

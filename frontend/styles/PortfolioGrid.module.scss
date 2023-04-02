@@ -1,8 +1,9 @@
 .portfolioGrid {
-	min-height: 200vh;
+	min-height: 150vh;
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
 	grid-template-rows: repeat(14, 9vh);
+	height: fit-content;
 
 
 	.portfolioGrid__item {

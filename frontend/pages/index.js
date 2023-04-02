@@ -9,12 +9,11 @@ import Introduction from "@/components/Introduction";
 import PortfolioGrid from "@/components/PortfolioGrid";
 import Layout from "@/components/Layout";
 import Skills from "@/components/Skills";
-
-export default function Home({home, projects, skills}) {
-
-
+import {SliceZone} from "@prismicio/react";
+import { components } from "@/slices";
 
 
+export default function Home({home}) {
 
     return (
         <>
@@ -33,11 +32,8 @@ export default function Home({home, projects, skills}) {
             </Head>
 
             <Layout>
-                <Banner background={home.data.backgroundImage} introduction={home.data.introduction[0].text}
-                        surname={home.data.surname} name={home.data.name} jobPart1={home.data.job_part_1}
-                        jobPart2={home.data.job_part_2}/>
-                <Skills skills={skills}/>
-                <PortfolioGrid projects={projects}/>
+                <Banner banner={home.data} />
+               <SliceZone slices={home.data.slices} components={components} />
             </Layout>
         </>
     )
@@ -54,8 +50,8 @@ export async function getStaticProps() {
     return {
         props: {
             home: home,
-            projects: projects,
-            skills: skills
+            // projects: projects,
+            // skills: skills
         }
     }
 

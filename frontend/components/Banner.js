@@ -32,6 +32,7 @@ const Banner = (props) => {
 
     useEffect(() => {
         if (hasRendered) {
+            console.log(props)
 
             // const tl = gsap.timeline({
             // 	once: true,
@@ -79,7 +80,7 @@ const Banner = (props) => {
             <div className={styles.banner} ref={banner}>
                 <div className={styles.mask} ref={maskRef}>
                     <div className={styles.imgContainer}>
-                        <img src={props.background.url} alt="background"/>
+                        <img src={props.banner.backgroundImage.url} alt="background"/>
                         {/*<video autoPlay muted loop id="myVideo">*/}
                         {/*    <source src="/videos/bg.mp4" type="video/mp4"/>*/}
                         {/*</video>*/}
@@ -87,26 +88,26 @@ const Banner = (props) => {
 
                     <div className={styles.leftTextContainer} ref={leftTextRef}>
                         <div className={styles.surname} ref={surnameRef}>
-                            {props.surname}
+                            {props.banner.surname}
                         </div>
                         <div className={styles.name} ref={nameRef}>
-                            {props.name}
+                            {props.banner.name}
                         </div>
                     </div>
 
                     <div className={styles.rightTextContainer} ref={rightTextRef}>
                         <div className={styles.jobPart1} ref={jobPart1Ref}>
-                            {props.jobPart1}
+                            {props.banner.job_part_1}
                         </div>
 
                         <div className={styles.jobPart2} ref={jobPart2Ref}>
-                            {props.jobPart2}
+                            {props.banner.job_part_2}
                         </div>
                     </div>
                 </div>
                 <div className={styles.intro} ref={introRef}>
                     <div className={styles.introText}>
-                        {props.introduction}
+                        {props.banner.introduction[0].text}
                     </div>
                 </div>
 

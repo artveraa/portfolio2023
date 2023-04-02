@@ -14,10 +14,10 @@ const routes = [
         type: 'home',
         path: '/',
     },
-    {
-        type: 'page',
-        path: '/:uid',
-    },
+    // {
+    //     type: 'page',
+    //     path: '/:uid',
+    // },
     {
         type: 'project',
         path: '/projets/:uid',

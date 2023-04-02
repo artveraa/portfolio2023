@@ -1,7 +1,23 @@
 {
   "_cts": {
     "home": {},
-    "project": {},
-    "skills": {}
+    "project": {}
+  },
+  "slices": {
+    "Skills": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "ProjectsList": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "Tools": {
+      "default": {
+        "primary": {}
+      }
+    }
   }
 }
