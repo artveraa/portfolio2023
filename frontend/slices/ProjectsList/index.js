@@ -32,7 +32,7 @@ const PortfolioGrid = ({slice}) => {
                     start: 'top bottom',
                     end: 'top -=1000',
                     scrub: true,
-                    markers: true,
+                    // markers: true,
                 },
             });
 
@@ -47,8 +47,7 @@ const PortfolioGrid = ({slice}) => {
 
     return (
         <>
-            <h2>Projects</h2>
-            <div className={styles.portfolioGrid} ref={gridRef}>
+            <section className={styles.portfolioGrid} ref={gridRef}>
                 {
                     slice.items.map((project) => {
                         return (
@@ -66,7 +65,7 @@ const PortfolioGrid = ({slice}) => {
 
                     })
                 }
-            </div>
+            </section>
         </>
     );
 }

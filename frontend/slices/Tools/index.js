@@ -21,8 +21,33 @@ const Tools = ({slice}) => {
         setHasRendered(true);
     });
 
+    const toolsContainer = useRef(null);
+
+    useEffect(() => {
+        const tools = document.querySelectorAll('.tool');
+
+        if (hasRendered) {
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: toolsContainer.current,
+                    start: 'top 80%',
+                    end: 'bottom bottom',
+                    scrub: 1,
+                    markers: true,
+                }
+            });
+
+            tools.forEach((tool) => {
+                gsap.set(tool, {autoAlpha: 0, x: -70});
+            })
+
+            tl.to(tools, {autoAlpha: 1, x: 0, duration: 0.5, stagger: 1, ease: 'power2.out'});
+        }
+    }, [hasRendered]);
+
+
     return (
-        <section className={styles.toolsContainer}>
+        <section className={styles.toolsContainer} ref={toolsContainer}>
             <h2>
                 {
                     slice.primary.introduction ?
@@ -35,7 +60,7 @@ const Tools = ({slice}) => {
                     slice.items.map((tool) => {
                         return (
                             <div className={styles.tool + ' tool'} key={tool.title}>
-                                <img src={tool.icon.url} />
+                                <img src={tool.icon.url}/>
                             </div>
                         )
 

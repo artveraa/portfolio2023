@@ -42,7 +42,7 @@ const Skills = ({slice}) => {
                     start: 'top 70%',
                     end: '+=1000',
                     scrub: true,
-                    markers: true,
+                    // markers: true,
                 }
             });
 
@@ -59,7 +59,7 @@ const Skills = ({slice}) => {
 
 
     return (
-        <div className={styles.skillsLayout}>
+        <section className={styles.skillsLayout}>
             <h2 ref={skillsTitleRef}>
                 {
                     slice.primary.introduction ?
@@ -80,7 +80,7 @@ const Skills = ({slice}) => {
                     })
                 }
             </div>
-        </div>
+        </section>
     )
 }
 

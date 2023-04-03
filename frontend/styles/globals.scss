@@ -87,3 +87,13 @@ h2 {
 body {
   background: #000;
 }
+
+section + section {
+  margin-top: 10rem;
+}
+
+section {
+  &:last-of-type {
+    margin-bottom: 10rem;
+  }
+}
