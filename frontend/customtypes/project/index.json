@@ -5,11 +5,31 @@
   "status": true,
   "json": {
     "Main": {
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Titre",
+          "placeholder": ""
+        }
+      },
       "uid": {
         "type": "UID",
         "config": {
           "label": "UID",
           "placeholder": ""
+        }
+      },
+      "category": {
+        "type": "Select",
+        "config": {
+          "label": "Catégorie",
+          "placeholder": "",
+          "options": [
+            "Front-end",
+            "Writing",
+            "Web design",
+            "Graphic design"
+          ]
         }
       },
       "thumbnail": {
@@ -20,11 +40,38 @@
           "thumbnails": []
         }
       },
-      "title": {
-        "type": "Text",
+      "introduction": {
+        "type": "StructuredText",
         "config": {
-          "label": "Titre",
-          "placeholder": ""
+          "label": "Introduction",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "big_image": {
+        "type": "Image",
+        "config": {
+          "label": "Grande image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "content": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Contenu",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "side_image": {
+        "type": "Image",
+        "config": {
+          "label": "Image côté",
+          "constraint": {},
+          "thumbnails": []
         }
       }
     }

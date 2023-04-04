@@ -3,6 +3,7 @@ import styles from "@/styles/Layout.module.scss";
 import {ScrollSmoother} from "gsap/dist/ScrollSmoother";
 import {useEffect, useState} from "react";
 import gsap from "gsap/dist/gsap";
+import Footer from "@/components/Footer";
 
 export default function Layout({children}) {
     if (typeof window !== 'undefined') {
@@ -18,11 +19,13 @@ export default function Layout({children}) {
 
 
     useEffect(() => {
-        new ScrollSmoother.create({
-            smooth: 1,
-            effect: true,
-            smoothTouch: .1,
-        });
+		if (hasRendered) {
+			ScrollSmoother.create({
+				smooth: 1,
+				effect: true,
+				smoothTouch: .1,
+			});
+		}
     }, [hasRendered])
 
 
@@ -32,7 +35,7 @@ export default function Layout({children}) {
                 <div id="smooth-content">
                     <NavBar/>
                     {children}
-                    <div>footer</div>
+                    <Footer/>
                 </div>
             </main>
         </div>

@@ -1,9 +1,16 @@
 import * as prismicH from '@prismicio/helpers'
 import {createClient} from "@/prismicio";
 import styles from "@/styles/Project.module.scss";
+import Layout from "@/components/Layout";
 
 const Projet = ({project}) => {
-	return <h1 className={styles.title}>{project.data.title}</h1>
+	return (
+		<Layout>
+			<h1 className={styles.title}>{project.data.title}</h1>
+		</Layout>
+	)
+
+
 }
 
 export default Projet;

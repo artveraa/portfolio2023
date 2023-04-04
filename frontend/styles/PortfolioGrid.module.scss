@@ -1,9 +1,11 @@
 .portfolioGrid {
-	height: 100%;
+	height: fit-content;
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
 	grid-template-rows: repeat(14, 9vh);
-	height: fit-content;
+	padding: 10rem 0;
+	//border: solid 1px red;
+
 
 
 	.portfolioGrid__item {

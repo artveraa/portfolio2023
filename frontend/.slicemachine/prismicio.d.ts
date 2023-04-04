@@ -104,6 +104,28 @@ export type HomeDocument<Lang extends string = string> = prismicT.PrismicDocumen
 /** Content for projet documents */
 interface ProjectDocumentData {
     /**
+     * Titre field in *projet*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: project.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+    /**
+     * Catégorie field in *projet*
+     *
+     * - **Field Type**: Select
+     * - **Placeholder**: *None*
+     * - **API ID Path**: project.category
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/select
+     *
+     */
+    category: prismicT.SelectField<"Front-end" | "Writing" | "Web design" | "Graphic design">;
+    /**
      * Vignette field in *projet*
      *
      * - **Field Type**: Image
@@ -115,16 +137,49 @@ interface ProjectDocumentData {
      */
     thumbnail: prismicT.ImageField<never>;
     /**
-     * Titre field in *projet*
+     * Introduction field in *projet*
      *
-     * - **Field Type**: Text
+     * - **Field Type**: Rich Text
      * - **Placeholder**: *None*
-     * - **API ID Path**: project.title
+     * - **API ID Path**: project.introduction
      * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
      */
-    title: prismicT.KeyTextField;
+    introduction: prismicT.RichTextField;
+    /**
+     * Grande image field in *projet*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: project.big_image
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    big_image: prismicT.ImageField<never>;
+    /**
+     * Contenu field in *projet*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: project.content
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    content: prismicT.RichTextField;
+    /**
+     * Image côté field in *projet*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: project.side_image
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    side_image: prismicT.ImageField<never>;
 }
 /**
  * projet document from Prismic

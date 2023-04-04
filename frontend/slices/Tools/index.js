@@ -33,7 +33,7 @@ const Tools = ({slice}) => {
                     start: 'top 80%',
                     end: 'bottom bottom',
                     scrub: 1,
-                    markers: true,
+                    // markers: true,
                 }
             });
 
