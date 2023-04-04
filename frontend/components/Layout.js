@@ -19,7 +19,7 @@ export default function Layout({children}) {
 
 
     useEffect(() => {
-		if (hasRendered) {
+		if (hasRendered && typeof window !== 'undefined') {
 			ScrollSmoother.create({
 				smooth: 1,
 				effect: true,
