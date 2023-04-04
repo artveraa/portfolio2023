@@ -58,9 +58,6 @@
             "skills": {
               "type": "SharedSlice"
             },
-            "projects_list": {
-              "type": "SharedSlice"
-            },
             "tools": {
               "type": "SharedSlice"
             }

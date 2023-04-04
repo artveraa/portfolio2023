@@ -90,7 +90,7 @@ interface HomeDocumentData {
  * Slice for *accueil → Slice Zone*
  *
  */
-type HomeDocumentDataSlicesSlice = SkillsSlice | ProjectsListSlice | ToolsSlice;
+type HomeDocumentDataSlicesSlice = SkillsSlice | ToolsSlice;
 /**
  * accueil document from Prismic
  *
@@ -137,71 +137,6 @@ interface ProjectDocumentData {
  */
 export type ProjectDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<ProjectDocumentData>, "project", Lang>;
 export type AllDocumentTypes = HomeDocument | ProjectDocument;
-/**
- * Primary content in ProjectsList → Primary
- *
- */
-interface ProjectsListSliceDefaultPrimary {
-    /**
-     * Introduction field in *ProjectsList → Primary*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: A nice description of your feature
-     * - **API ID Path**: projects_list.primary.introduction
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    introduction: prismicT.RichTextField;
-}
-/**
- * Item in ProjectsList → Items
- *
- */
-export interface ProjectsListSliceDefaultItem {
-    /**
-     * Titre field in *ProjectsList → Items*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: projects_list.items[].title
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    title: prismicT.KeyTextField;
-    /**
-     * Image principale field in *ProjectsList → Items*
-     *
-     * - **Field Type**: Image
-     * - **Placeholder**: *None*
-     * - **API ID Path**: projects_list.items[].main_image
-     * - **Documentation**: https://prismic.io/docs/core-concepts/image
-     *
-     */
-    main_image: prismicT.ImageField<never>;
-}
-/**
- * Default variation for ProjectsList Slice
- *
- * - **API ID**: `default`
- * - **Description**: `ProjectsList`
- * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
- *
- */
-export type ProjectsListSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<ProjectsListSliceDefaultPrimary>, Simplify<ProjectsListSliceDefaultItem>>;
-/**
- * Slice variation for *ProjectsList*
- *
- */
-type ProjectsListSliceVariation = ProjectsListSliceDefault;
-/**
- * ProjectsList Shared Slice
- *
- * - **API ID**: `projects_list`
- * - **Description**: `ProjectsList`
- * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
- *
- */
-export type ProjectsListSlice = prismicT.SharedSlice<"projects_list", ProjectsListSliceVariation>;
 /**
  * Primary content in Skills → Primary
  *
@@ -337,6 +272,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { HomeDocumentData, HomeDocumentDataSlicesSlice, HomeDocument, ProjectDocumentData, ProjectDocument, AllDocumentTypes, ProjectsListSliceDefaultPrimary, ProjectsListSliceDefaultItem, ProjectsListSliceDefault, ProjectsListSliceVariation, ProjectsListSlice, SkillsSliceDefaultPrimary, SkillsSliceDefaultItem, SkillsSliceDefault, SkillsSliceVariation, SkillsSlice, ToolsSliceDefaultPrimary, ToolsSliceDefaultItem, ToolsSliceDefault, ToolsSliceVariation, ToolsSlice };
+        export type { HomeDocumentData, HomeDocumentDataSlicesSlice, HomeDocument, ProjectDocumentData, ProjectDocument, AllDocumentTypes, SkillsSliceDefaultPrimary, SkillsSliceDefaultItem, SkillsSliceDefault, SkillsSliceVariation, SkillsSlice, ToolsSliceDefaultPrimary, ToolsSliceDefaultItem, ToolsSliceDefault, ToolsSliceVariation, ToolsSlice };
     }
 }

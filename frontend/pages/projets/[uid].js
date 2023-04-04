@@ -25,7 +25,7 @@ export async function getStaticProps({params, previewData}) {
 export async function getStaticPaths() {
 	const client = createClient();
 
-	const projects = await client.getAllByType("project");
+	const projects = await client.getAllByType("projet");
 
 	return {
 		paths: projects.map((project) => prismicH.asLink(project)),
