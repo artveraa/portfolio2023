@@ -8,9 +8,9 @@ import {PrismicRichText} from "@prismicio/react";
 
 const Skills = ({slice}) => {
 
-    if (typeof window !== 'undefined') {
-        gsap.registerPlugin(ScrollTrigger, SplitText);
-    }
+    // if (typeof window !== 'undefined') {
+    //     gsap.registerPlugin(ScrollTrigger, SplitText);
+    // }
 
     const [hasRendered, setHasRendered] = useState(false);
 

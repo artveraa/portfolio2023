@@ -26,7 +26,7 @@ const Project = ({project}) => {
 
 	useEffect(() => {
 		if (hasRendered) {
-			console.log(project)
+			
 			gsap.set('#navbar', {position: 'relative'});
 			gsap.from(tagRef.current, {
 				y: -100,

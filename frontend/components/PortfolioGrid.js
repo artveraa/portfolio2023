@@ -21,9 +21,9 @@ const PortfolioGrid = ({projects}) => {
 
 			const tl = gsap.timeline({
 				scrollTrigger: {
-					trigger: gridRef.current,
-					start: 'top bottom',
-					end: 'top -=1000',
+					trigger: items,
+					start: 'top 80%',
+					end: 'top -1000',
 					scrub: true,
 					markers: true,
 				},
@@ -33,8 +33,8 @@ const PortfolioGrid = ({projects}) => {
 				gsap.set(item, {y: 100, autoAlpha: 0});
 			});
 
-			tl.to(gridRef.current, {backgroundColor: '#FFF', duration: 1, ease: "Power2.easeInOut", delay: 6})
-				.to(items, {y: 0, autoAlpha: 1, duration: 1.5, stagger: 1, ease: "Power2.easeInOut", once: true})
+			tl.to(gridRef.current, {backgroundColor: '#FFF', duration: 1, ease: "Power2.out"})
+				.to(items, {y: 0, autoAlpha: 1, duration: 1.5, stagger: 1, ease: "Power2.easeInOut"})
 		}
 	}, [hasRendered]);
 

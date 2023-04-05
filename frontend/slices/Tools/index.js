@@ -4,6 +4,7 @@ import gsap from "gsap/dist/gsap";
 import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
 import {SplitText} from "gsap/dist/SplitText";
 import {PrismicRichText} from "@prismicio/react";
+import {log} from "next/dist/server/typescript/utils";
 
 /**
  * @typedef {import("@prismicio/client").Content.ToolsSlice} ToolsSlice
@@ -11,9 +12,9 @@ import {PrismicRichText} from "@prismicio/react";
  * @param { ToolsProps }
  */
 const Tools = ({slice}) => {
-    if (typeof window !== 'undefined') {
-        gsap.registerPlugin(ScrollTrigger, SplitText);
-    }
+    // if (typeof window !== 'undefined') {
+    //     gsap.registerPlugin(ScrollTrigger, SplitText);
+    // }
 
     const [hasRendered, setHasRendered] = useState(false);
 
@@ -57,9 +58,10 @@ const Tools = ({slice}) => {
             </h2>
             <div className={styles.toolsGrid}>
                 {
-                    slice.items.map((tool) => {
+                    slice.items.map((tool, index) => {
+
                         return (
-                            <div className={styles.tool + ' tool'} key={tool.title}>
+                            <div className={styles.tool + ' tool'} key={index}>
                                 <img src={tool.icon.url}/>
                             </div>
                         )

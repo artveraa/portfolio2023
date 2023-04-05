@@ -6,7 +6,8 @@ const NavBar = () => {
         <>
             <div className={styles.navbar} id={'navbar'}>
                 <div className={styles.logo}>
-                    <p>arthurvera</p>
+                    <a href="/">arthurvera</a>
+
                 </div>
                 <div className={styles.menuIcon}>
                     <div className={styles.dot}></div>

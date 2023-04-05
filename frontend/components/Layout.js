@@ -1,14 +1,17 @@
 import NavBar from "@/components/NavBar";
 import styles from "@/styles/Layout.module.scss";
 import {ScrollSmoother} from "gsap/dist/ScrollSmoother";
+import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
+import { SwitchTransition, Transition } from "react-transition-group";
+import {useRouter} from "next/router";
 import {useEffect, useState} from "react";
 import gsap from "gsap/dist/gsap";
 import Footer from "@/components/Footer";
 
+gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
+
+
 export default function Layout({children}) {
-    if (typeof window !== 'undefined') {
-        gsap.registerPlugin(ScrollSmoother);
-    }
 
     const [hasRendered, setHasRendered] = useState(false);
 
@@ -16,12 +19,15 @@ export default function Layout({children}) {
        setHasRendered(true)
     });
 
+    if (typeof window !== 'undefined') {
+
+    }
 
 
     useEffect(() => {
 		if (hasRendered && typeof window !== 'undefined') {
 			ScrollSmoother.create({
-				smooth: 1,
+				smooth: 3,
 				effect: true,
 				smoothTouch: .1,
 			});

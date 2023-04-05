@@ -14,14 +14,14 @@ const Banner = (props) => {
         setHasRendered(true);
     }, []);
 
-    if (typeof window !== 'undefined') {
-        gsap.registerPlugin(ScrollTrigger, SplitText);
-    }
+    // if (typeof window !== 'undefined') {
+    //     gsap.registerPlugin(ScrollTrigger, SplitText);
+    // }
 
 
     const introRef = useRef(null);
     const maskRef = useRef(null);
-    //const containerImgRef = useRef(null);
+    const containerImgRef = useRef(null);
     const banner = useRef(null);
     const leftTextRef = useRef(null);
     const surnameRef = useRef(null);
@@ -32,19 +32,6 @@ const Banner = (props) => {
 
     useEffect(() => {
         if (hasRendered) {
-            console.log(props)
-
-            // const tl = gsap.timeline({
-            // 	once: true,
-            // });
-            //
-            // gsap.set(containerImgRef.current, {scale: 1.2});
-            // gsap.set(introRef.current, { y:100, autoAlpha: 0});
-            // gsap.set('#navbar', { y:-100, autoAlpha: 0});
-            //
-            // tl.to(containerImgRef.current, {scale: 1, duration: 1, ease: "power2.out"})
-            // .to(introRef.current, {y: 0, autoAlpha: 1, duration: 1, ease: "power2.out"}, "-=.8")
-            // .to('#navbar', {y: 0, autoAlpha: 1, duration: 1, ease: "power2.out"}, "-=.8")
 
             const tl2 = gsap.timeline({
                 scrollTrigger: {
@@ -110,7 +97,6 @@ const Banner = (props) => {
                         {props.banner.introduction[0].text}
                     </div>
                 </div>
-
 
 
             </div>
