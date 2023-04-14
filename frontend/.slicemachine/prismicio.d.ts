@@ -193,6 +193,55 @@ interface ProjectDocumentData {
 export type ProjectDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<ProjectDocumentData>, "project", Lang>;
 export type AllDocumentTypes = HomeDocument | ProjectDocument;
 /**
+ * Primary content in Projects → Primary
+ *
+ */
+interface ProjectsSliceDefaultPrimary {
+    /**
+     * Title field in *Projects → Primary*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: projects.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+    /**
+     * Description field in *Projects → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: A nice description of your feature
+     * - **API ID Path**: projects.primary.description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+}
+/**
+ * Default variation for Projects Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Projects`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ProjectsSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<ProjectsSliceDefaultPrimary>, never>;
+/**
+ * Slice variation for *Projects*
+ *
+ */
+type ProjectsSliceVariation = ProjectsSliceDefault;
+/**
+ * Projects Shared Slice
+ *
+ * - **API ID**: `projects`
+ * - **Description**: `Projects`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ProjectsSlice = prismicT.SharedSlice<"projects", ProjectsSliceVariation>;
+/**
  * Primary content in Skills → Primary
  *
  */
@@ -327,6 +376,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { HomeDocumentData, HomeDocumentDataSlicesSlice, HomeDocument, ProjectDocumentData, ProjectDocument, AllDocumentTypes, SkillsSliceDefaultPrimary, SkillsSliceDefaultItem, SkillsSliceDefault, SkillsSliceVariation, SkillsSlice, ToolsSliceDefaultPrimary, ToolsSliceDefaultItem, ToolsSliceDefault, ToolsSliceVariation, ToolsSlice };
+        export type { HomeDocumentData, HomeDocumentDataSlicesSlice, HomeDocument, ProjectDocumentData, ProjectDocument, AllDocumentTypes, ProjectsSliceDefaultPrimary, ProjectsSliceDefault, ProjectsSliceVariation, ProjectsSlice, SkillsSliceDefaultPrimary, SkillsSliceDefaultItem, SkillsSliceDefault, SkillsSliceVariation, SkillsSlice, ToolsSliceDefaultPrimary, ToolsSliceDefaultItem, ToolsSliceDefault, ToolsSliceVariation, ToolsSlice };
     }
 }

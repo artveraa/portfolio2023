@@ -1,36 +1,87 @@
-import React from 'react'
-import { PrismicRichText } from '@prismicio/react'
+import styles from '@/styles/Skills.module.scss';
+import React, {useEffect, useState, useRef} from "react";
+import gsap from "gsap/dist/gsap";
+import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
+import {SplitText} from "gsap/dist/SplitText";
+import {PrismicRichText} from "@prismicio/react";
 
-/**
- * @typedef {import("@prismicio/client").Content.ProjectsListSlice} ProjectsListSlice
- * @typedef {import("@prismicio/react").SliceComponentProps<ProjectsListSlice>} ProjectsListProps
- * @param { ProjectsListProps }
- */
-const ProjectsList = ({ slice }) => (
-    <section>
-    <span className="title">
-      {
-          slice.primary.title ?
-              <PrismicRichText field={slice.primary.title}/>
-              : <h2>Template slice, update me!</h2>
-      }
-    </span>
-        {
-            slice.primary.description ?
-                <PrismicRichText field={slice.primary.description}/>
-                : <p>start by editing this slice from inside Slice Machine!</p>
-        }
-        <style jsx>{`
-        section {
-          max-width: 600px;
-          margin: 4em auto;
-          text-align: center;
-        }
-        .title {
-          color: #8592e0;
-        }
-    `}</style>
-    </section>
-)
 
-export default ProjectsList
+const Skills = ({skills}) => {
+
+    // if (typeof window !== 'undefined') {
+    //     gsap.registerPlugin(ScrollTrigger, SplitText);
+    // }
+
+    const [hasRendered, setHasRendered] = useState(false);
+
+    useEffect(() => {
+        setHasRendered(true);
+    });
+
+    const skillsTitleRef = useRef(null);
+    const skillsContainerRef = useRef(null);
+    const skillRef = useRef(null);
+
+    useEffect(() => {
+
+
+        if (hasRendered) {
+            ScrollTrigger.create({
+                trigger: skillsTitleRef.current,
+                start: 'top 5%',
+                end: '+=1000',
+                scrub: true,
+                pin: true,
+                pinSpacing: false,
+                // markers: true,
+            });
+
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: skillsContainerRef.current,
+                    start: 'top 70%',
+                    end: '+=1000',
+                    scrub: true,
+                    // markers: true,
+                }
+            });
+
+            const skills = document.querySelectorAll('.skill');
+
+            gsap.set(skills, {autoAlpha: 0, x: -70});
+
+            tl.to(skills, {autoAlpha: 1, x: 0, duration: 1, ease: "power2.out", stagger: .2})
+
+
+        }
+
+    }, [hasRendered]);
+
+
+    return (
+        <section className={styles.skillsLayout}>
+            <h2 ref={skillsTitleRef}>
+                {
+                    skills.primary.introduction ?
+                        <PrismicRichText field={skills.primary.introduction}/>
+                        : <h2>Template skills, update me!</h2>
+                }
+            </h2>
+            <div className={styles.skillsContainer} ref={skillsContainerRef}>
+                {
+                    skills.items.map((skill) => {
+                        return (
+                            <div className={styles.skill + ' skill'} ref={skillRef} key={skill.title}>
+                                <h3>{skill.title}</h3>
+                                <p>{skill.description[0].text}</p>
+                            </div>
+                        )
+
+                    })
+                }
+            </div>
+        </section>
+    )
+}
+
+export default Skills;

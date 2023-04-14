@@ -9,17 +9,19 @@ import Introduction from "@/components/Introduction";
 import PortfolioGrid from "@/components/PortfolioGrid";
 import Layout from "@/components/Layout";
 import Skills from "@/components/Skills";
+import Tools from "@/components/Tools";
 import {SliceZone} from "@prismicio/react";
 import {components} from "@/slices";
 import {log} from "next/dist/server/typescript/utils";
 
 
-export default function Home({home, projects}) {
+export default function Home({home, projects, skills, tools}) {
 
     const [hasRendered, setHasRendered] = useState(false);
 
     useEffect(() => {
         setHasRendered(true);
+        console.log(home)
     }, []);
 
     // if (typeof window !== 'undefined') {
@@ -43,9 +45,11 @@ export default function Home({home, projects}) {
             </Head>
 
             <Layout>
-                <Banner banner={home.data}/>
-                <SliceZone slices={home.data.slices} components={components}/>
+                <Banner banner={home}/>
+                {/*<SliceZone slices={home.data.slices} components={components}/>*/}
+                <Skills skills={skills}/>
                 <PortfolioGrid projects={projects}/>
+                <Tools tools={tools}/>
             </Layout>
         </>
     )
@@ -60,7 +64,9 @@ export async function getStaticProps() {
 
     return {
         props: {
-            home: home,
+            skills: home.data.slices[0],
+            tools: home.data.slices[1],
+            home: home.data,
             projects: projects
         }
     }
