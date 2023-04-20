@@ -21,7 +21,6 @@ export default function Home({home, projects, skills, tools}) {
 
     useEffect(() => {
         setHasRendered(true);
-        console.log(home)
     }, []);
 
     // if (typeof window !== 'undefined') {
