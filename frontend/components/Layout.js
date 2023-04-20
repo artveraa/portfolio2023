@@ -20,11 +20,6 @@ export default function Layout({children}) {
 		setHasRendered(true)
 	});
 
-	if (typeof window !== 'undefined') {
-
-	}
-
-
 	useEffect(() => {
 		if (hasRendered && typeof window !== 'undefined') {
 			ScrollSmoother.create({
@@ -34,6 +29,11 @@ export default function Layout({children}) {
 			});
 		}
 	}, [hasRendered])
+
+	gsap.config({
+		nullTargetWarn: false,
+		trialWarn: false
+	});
 
 
 	return (

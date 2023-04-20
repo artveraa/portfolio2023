@@ -10,12 +10,13 @@
     "slicemachine": "start-slicemachine"
   },
   "dependencies": {
+    "@gsap/business": "^3.11.5",
     "@prismicio/client": "^6.7.3",
     "@prismicio/helpers": "^2.3.9",
     "@prismicio/next": "^1.0.3",
     "@prismicio/react": "^2.5.2",
     "@prismicio/slice-simulator-react": "^0.2.3",
-    "gsap": "npm:@gsap/business@^3.11.4",
+    "gsap": "npm:@gsap/business@^3.11.5",
     "next": "13.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
