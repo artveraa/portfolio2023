@@ -2,6 +2,9 @@
 const nextConfig = {
 	reactStrictMode: true,
 	experimental: {esmExternals: true},
+	images : {
+		domains: ['images.prismic.io']
+	}
 }
 
 module.exports = nextConfig
