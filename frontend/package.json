@@ -17,7 +17,7 @@
     "@prismicio/react": "^2.5.2",
     "@prismicio/slice-simulator-react": "^0.2.3",
     "framer-motion": "^10.12.4",
-    "gsap": "npm:@gsap/business@^3.11.5",
+    "gsap": "file:gsap-bonus.tgz",
     "next": "13.2.1",
     "next-transpile-modules": "^10.0.0",
     "react": "18.2.0",
