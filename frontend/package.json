@@ -28,5 +28,7 @@
   "devDependencies": {
     "@prismicio/types": "^0.2.7",
     "slice-machine-ui": "^0.7.1"
-  }
+  },
+  "main": "index.js",
+  "license": "MIT"
 }

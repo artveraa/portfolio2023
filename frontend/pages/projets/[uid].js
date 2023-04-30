@@ -95,6 +95,9 @@ const Project = ({project}) => {
                     })
                 );
 
+
+
+
                 const contentTl = gsap.timeline({
                     scrollTrigger: {
                         trigger: projectContentRef.current,

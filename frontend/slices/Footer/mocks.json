@@ -1,0 +1,24 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "get_in_touch": {
+        "__TYPE__": "FieldContent",
+        "value": "suppose",
+        "type": "Text"
+      },
+      "signature": {
+        "__TYPE__": "FieldContent",
+        "value": "beautiful",
+        "type": "Text"
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  }
+]

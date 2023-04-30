@@ -137,6 +137,17 @@ interface ProjectDocumentData {
      */
     thumbnail: prismicT.ImageField<never>;
     /**
+     * Image côté field in *projet*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: project.side_image
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    side_image: prismicT.ImageField<never>;
+    /**
      * Introduction field in *projet*
      *
      * - **Field Type**: Rich Text
@@ -159,6 +170,17 @@ interface ProjectDocumentData {
      */
     big_image: prismicT.ImageField<never>;
     /**
+     * Seconde Image field in *projet*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: project.second_image
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    second_image: prismicT.ImageField<never>;
+    /**
      * Contenu field in *projet*
      *
      * - **Field Type**: Rich Text
@@ -169,17 +191,6 @@ interface ProjectDocumentData {
      *
      */
     content: prismicT.RichTextField;
-    /**
-     * Image côté field in *projet*
-     *
-     * - **Field Type**: Image
-     * - **Placeholder**: *None*
-     * - **API ID Path**: project.side_image
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/image
-     *
-     */
-    side_image: prismicT.ImageField<never>;
 }
 /**
  * projet document from Prismic
@@ -192,6 +203,55 @@ interface ProjectDocumentData {
  */
 export type ProjectDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<ProjectDocumentData>, "project", Lang>;
 export type AllDocumentTypes = HomeDocument | ProjectDocument;
+/**
+ * Primary content in Footer → Primary
+ *
+ */
+interface FooterSliceDefaultPrimary {
+    /**
+     * Get in touch field in *Footer → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: footer.primary.get_in_touch
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    get_in_touch: prismicT.KeyTextField;
+    /**
+     * Signature field in *Footer → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: footer.primary.signature
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    signature: prismicT.KeyTextField;
+}
+/**
+ * Default variation for Footer Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Footer`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type FooterSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<FooterSliceDefaultPrimary>, never>;
+/**
+ * Slice variation for *Footer*
+ *
+ */
+type FooterSliceVariation = FooterSliceDefault;
+/**
+ * Footer Shared Slice
+ *
+ * - **API ID**: `footer`
+ * - **Description**: `Footer`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type FooterSlice = prismicT.SharedSlice<"footer", FooterSliceVariation>;
 /**
  * Primary content in Projects → Primary
  *
@@ -376,6 +436,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { HomeDocumentData, HomeDocumentDataSlicesSlice, HomeDocument, ProjectDocumentData, ProjectDocument, AllDocumentTypes, ProjectsSliceDefaultPrimary, ProjectsSliceDefault, ProjectsSliceVariation, ProjectsSlice, SkillsSliceDefaultPrimary, SkillsSliceDefaultItem, SkillsSliceDefault, SkillsSliceVariation, SkillsSlice, ToolsSliceDefaultPrimary, ToolsSliceDefaultItem, ToolsSliceDefault, ToolsSliceVariation, ToolsSlice };
+        export type { HomeDocumentData, HomeDocumentDataSlicesSlice, HomeDocument, ProjectDocumentData, ProjectDocument, AllDocumentTypes, FooterSliceDefaultPrimary, FooterSliceDefault, FooterSliceVariation, FooterSlice, ProjectsSliceDefaultPrimary, ProjectsSliceDefault, ProjectsSliceVariation, ProjectsSlice, SkillsSliceDefaultPrimary, SkillsSliceDefaultItem, SkillsSliceDefault, SkillsSliceVariation, SkillsSlice, ToolsSliceDefaultPrimary, ToolsSliceDefaultItem, ToolsSliceDefault, ToolsSliceVariation, ToolsSlice };
     }
 }
