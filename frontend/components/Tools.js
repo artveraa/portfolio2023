@@ -1,6 +1,6 @@
 import styles from '@/styles/Tools.module.scss';
 import React, {useEffect, useState, useRef} from "react";
-import gsap from "gsap/dist/gsap";
+import gsap from "gsap";
 import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
 import {SplitText} from "gsap/dist/SplitText";
 import {PrismicRichText} from "@prismicio/react";

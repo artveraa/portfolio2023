@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styles from '../styles/NavBar.module.scss';
 import {useEffect, useRef, useState} from "react";
-import gsap from "gsap/dist/gsap";
+import gsap from "gsap";
 import Menu from "@/components/Menu";
 
 const NavBar = () => {

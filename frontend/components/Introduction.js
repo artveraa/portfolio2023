@@ -1,6 +1,6 @@
 import styles from '../styles/Introduction.module.scss';
 import {useEffect, useRef, useState} from "react";
-import gsap from "gsap/dist/gsap";
+import gsap from "gsap";
 import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
 import {SplitText} from "gsap/dist/SplitText";
 import Image from "next/image";

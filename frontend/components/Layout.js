@@ -5,7 +5,7 @@ import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
 import {SwitchTransition, Transition} from "react-transition-group";
 import {useRouter} from "next/router";
 import {useEffect, useState} from "react";
-import gsap from "gsap/dist/gsap";
+import gsap from "gsap";
 import Footer from "@/components/Footer";
 import Menu from "@/components/Menu";
 

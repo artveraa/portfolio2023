@@ -1,7 +1,7 @@
 import styles from '@/styles/PortfolioGrid.module.scss';
 import {Project} from "@/components/Project";
 import {useState, useEffect, useRef} from "react";
-import gsap from "gsap/dist/gsap";
+import gsap from "gsap";
 
 const PortfolioGrid = ({projects}) => {
 

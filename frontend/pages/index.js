@@ -4,7 +4,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Banner from '../components/Banner'
 import {useEffect, useState} from "react";
-import gsap from "gsap/dist/gsap";
+import gsap from "gsap";
 import Introduction from "@/components/Introduction";
 import PortfolioGrid from "@/components/PortfolioGrid";
 import Layout from "@/components/Layout";

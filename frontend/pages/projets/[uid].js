@@ -4,7 +4,7 @@ import styles from "@/styles/Project.module.scss";
 import Layout from "@/components/Layout";
 import NavBar from "@/components/NavBar";
 import {useEffect, useState, useRef} from "react";
-import gsap from "gsap/dist/gsap";
+import gsap from "gsap";
 import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
 import {ScrollSmoother} from "gsap/dist/ScrollSmoother";
 import {PrismicRichText} from "@prismicio/react";
@@ -98,8 +98,6 @@ const Project = ({project}) => {
     });
 
 
-
-
     useEffect(() => {
         if (hasRendered) {
             const contentTl = gsap.timeline({
@@ -127,12 +125,14 @@ const Project = ({project}) => {
                         <h1 className={styles.title} ref={titleRef}>{project.data.title}</h1>
                         <div className={styles.projectImage} ref={imgContainerRef}>
                             <div className={styles.imgMask} ref={maskRef}></div>
-                            <Image
-                                src={project.data.side_image.url}
-                                alt={project.data.side_image.alt}
-                                width={project.data.side_image.dimensions.width}
-                                height={project.data.side_image.dimensions.height}
-                            />
+                            {project.data.side_image?.url && (
+                                <Image
+                                    src={project.data.side_image.url}
+                                    alt={project.data.side_image.alt}
+                                    width={project.data.side_image?.dimensions.width}
+                                    height={project.data.side_image?.dimensions.height}
+                                />
+                            )}
 
                         </div>
                     </div>
@@ -142,27 +142,31 @@ const Project = ({project}) => {
                     </div>
 
                     <div className={styles.projectBigImage} ref={projectBigImageRef}>
-                        <Image
-                            data-speed='auto'
-                            data-lag='0'
-                            src={project.data.big_image.url}
-                            alt={project.data.big_image.alt}
-                            width={project.data.big_image.dimensions.width}
-                            height={project.data.big_image.dimensions.height}
-                        />
+                        {project.data.big_image?.url && (
+                            <Image
+                                data-speed='auto'
+                                data-lag='0'
+                                src={project.data.big_image.url}
+                                alt={project.data.big_image.alt}
+                                width={project.data.big_image?.dimensions.width}
+                                height={project.data.big_image?.dimensions.height}
+                            />
+                        )}
                     </div>
 
                     <div className={styles.projectContent} ref={projectContentRef}>
-                        <div className={styles.projectSecondImageInner} ref={projectSecondImageRef}>
-                            <Image
-                                src={project.data.second_image.url}
-                                data-speed='auto'
-                                data-lag='0'
-                                width={project.data.second_image.dimensions.width}
-                                height={project.data.second_image.dimensions.height}
-                                alt={project.data.second_image.alt}
-                            />
-                        </div>
+                        {project.data.second_image?.url && (
+                            <div className={styles.projectSecondImageInner} ref={projectSecondImageRef}>
+                                <Image
+                                    src={project.data.second_image.url}
+                                    data-speed='auto'
+                                    data-lag='0'
+                                    width={project.data.second_image?.dimensions.width}
+                                    height={project.data.second_image?.dimensions.height}
+                                    alt={project.data.second_image.alt}
+                                />
+                            </div>
+                        )}
                         <div className={styles.projectText} ref={projectTextRef}>
                             <PrismicRichText field={project.data.content}/>
                         </div>
