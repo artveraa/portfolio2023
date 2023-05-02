@@ -1,4 +1,39 @@
 .footer {
-	height: 50vh;
-	color: #FFF;
+  height: 50vh;
+  color: #FFF;
+  padding: 0 1rem 0 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  a {
+    color: #FFF;
+    text-decoration: none;
+  }
+
+  .footer__container {
+    display: flex;
+    justify-content: space-between;
+
+    .footer__right {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+    }
+  }
+
+  .footer__bottom {
+    display: flex;
+    justify-content: space-between;
+
+    .surname,
+    .name {
+      font-family: "Apoc Revelations", serif;
+      text-transform: uppercase;
+      font-size: 13vw;
+      height: fit-content;
+    }
+  }
+
 }

@@ -34,7 +34,6 @@
 			object-fit: cover;
 			position: relative;
 			overflow: hidden;
-			max-height: 50vh;
 
 			.imgMask {
 				position: absolute;
@@ -59,6 +58,11 @@
 		line-height: 1.5;
 		max-width: 33vw;
 		margin: 10rem auto 10rem auto;
+
+		@media (max-width: 768px) {
+			max-width: 80vw !important;
+			margin: 1rem auto 1rem auto;
+		}
 	}
 
 	.projectBigImage {
@@ -69,6 +73,10 @@
 		margin: 0 auto 10rem auto;
 		position: relative;
 		overflow: hidden;
+
+		@media (max-width: 768px) {
+			aspect-ratio: 1 / 1;
+		}
 
 		img {
 			width: 100%;
@@ -82,6 +90,11 @@
 		grid-template-columns: 1fr 1fr;
 		margin-bottom: 10rem;
 		gap: 10rem;
+
+		@media (min-width: 768px) {
+			grid-template-columns: 1fr;
+			gap: 0;
+		}
 
 		.projectSecondImageInner {
 			//aspect-ratio: 2 / 1;
