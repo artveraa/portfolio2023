@@ -64,56 +64,58 @@ const Project = ({project}) => {
     }, [hasRendered]);
 
     useEffect(() => {
-            if (hasRendered) {
-                ScrollTrigger.create({
-                        trigger: projectIntroRef.current,
-                        start: 'top 80%',
-                        end: 'bottom bottom',
-                        scrub: 1,
-                        // markers: true,
-                    },
-                    gsap.from(projectIntroRef.current, {
-                        autoAlpha: 0,
-                        y: 100,
-                        duration: 1,
-                        ease: "power2.out",
-                    })
-                );
+        if (hasRendered) {
+            ScrollTrigger.create({
+                    trigger: projectIntroRef.current,
+                    start: 'top 80%',
+                    end: 'bottom bottom',
+                    scrub: 1,
+                    // markers: true,
+                },
+                gsap.from(projectIntroRef.current, {
+                    autoAlpha: 0,
+                    y: 100,
+                    duration: 1,
+                    ease: "power2.out",
+                })
+            );
 
-                ScrollTrigger.create({
-                        trigger: projectBigImageRef.current,
-                        start: 'top 80%',
-                        end: 'bottom bottom',
-                        scrub: 1,
-                        // markers: true,
-                    },
-                    gsap.from(projectBigImageRef.current, {
-                        autoAlpha: 0,
-                        y: 100,
-                        duration: 1,
-                        ease: "power2.out",
-                    })
-                );
-
-
-
-
-                const contentTl = gsap.timeline({
-                    scrollTrigger: {
-                        trigger: projectContentRef.current,
-                        start: 'top 80%',
-                        end: 'bottom bottom',
-                        scrub: 1,
-                        markers: true,
-                    }
-                });
-
-                contentTl.from(projectSecondImageRef.current, {autoAlpha: 0, y: 100, duration: 1, ease: "power2.out",})
-                    .from(projectTextRef.current, {autoAlpha: 0, y: 100, duration: 1, delay: .1, ease: "power2.out",});
-            }
+            ScrollTrigger.create({
+                    trigger: projectBigImageRef.current,
+                    start: 'top 80%',
+                    end: 'bottom bottom',
+                    scrub: 1,
+                    // markers: true,
+                },
+                gsap.from(projectBigImageRef.current, {
+                    autoAlpha: 0,
+                    y: 100,
+                    duration: 1,
+                    ease: "power2.out",
+                })
+            );
         }
-    )
-    ;
+    });
+
+
+
+
+    useEffect(() => {
+        if (hasRendered) {
+            const contentTl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: projectContentRef.current,
+                    start: 'top 80%',
+                    end: 'bottom bottom',
+                    scrub: 1,
+                    // markers: true,
+                }
+            });
+
+            contentTl.from(projectSecondImageRef.current, {autoAlpha: 0, y: -100, duration: 1, ease: "power2.out",})
+                .from(projectTextRef.current, {autoAlpha: 0, y: 100, duration: 1, ease: "power2.out",});
+        }
+    });
 
 
     return (
@@ -151,7 +153,7 @@ const Project = ({project}) => {
                     </div>
 
                     <div className={styles.projectContent} ref={projectContentRef}>
-                        <div className={styles.projectSecondImageInner}>
+                        <div className={styles.projectSecondImageInner} ref={projectSecondImageRef}>
                             <Image
                                 src={project.data.second_image.url}
                                 data-speed='auto'
@@ -161,7 +163,7 @@ const Project = ({project}) => {
                                 alt={project.data.second_image.alt}
                             />
                         </div>
-                        <div className={styles.projectText}>
+                        <div className={styles.projectText} ref={projectTextRef}>
                             <PrismicRichText field={project.data.content}/>
                         </div>
                     </div>
