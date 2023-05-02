@@ -1,5 +1,5 @@
 import * as prismic from '@prismicio/client'
-import sm from '../sm.json'
+import sm from '../slicemachine.config.json'
 import Head from 'next/head'
 import Image from 'next/image'
 import Banner from '../components/Banner'
