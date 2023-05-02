@@ -25,7 +25,7 @@ const PortfolioGrid = ({projects}) => {
 					start: 'top 80%',
 					end: 'top -1000',
 					scrub: true,
-					markers: true,
+					// markers: true,
 				},
 			});
 
