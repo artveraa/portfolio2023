@@ -121,49 +121,29 @@
 		}
 	}
 
-	.projectIntroduction {
-		max-width: 33%;
-		margin: 0 auto;
-		padding: 10rem 0 10rem 0rem;
-		font-size: 1rem;
-		line-height: 1.5;
-		font-family: "Mona Sans", sans-serif;
-		font-variation-settings: 'wght' 200, 'wdth' 100;
-		text-transform: uppercase;
-	}
-
-	.fullImage {
-		aspect-ratio: 2 / 1;
-		width: 100%;
-		height: auto;
-		object-fit: cover;
-		position: relative;
-		overflow: hidden;
-
-		img {
-			width: 100%;
-			height: auto;
-			object-fit: cover;
-		}
-	}
 
 	.projectContent {
 		padding: 10rem 0 10rem 0rem;
-		display: flex;
-		width: 100%;
-		gap: 5rem;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		justify-content: space-between;
+		gap: 10rem;
+
+		@media (max-width: 768px) {
+			grid-template-columns: 1fr;
+			gap: 0;
+			padding: 0;
+		}
 
 		p {
-			width: 50%;
-
 			font-size: 1rem;
 			line-height: 1.5;
 			font-family: "Apoc Revelations", serif;
 
 		}
 
-		.projectContentImage {
-			width: 50%;
+		.projectSecondImage {
+
 			height: auto;
 			object-fit: cover;
 			position: relative;
