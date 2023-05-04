@@ -23,16 +23,21 @@ const NavBar = () => {
 					<a href="/">arthurvera</a>
 
 				</div>
-				<div className={styles.menuIcon} ref={menuBtnRef} onClick={ontoggle} >
-					<div className={styles.dot}></div>
-					<div className={styles.dot}></div>
-					<div className={styles.dot}></div>
-					<div className={styles.dot}></div>
-					<div className={styles.dot}></div>
-					<div className={styles.dot}></div>
-					<div className={styles.dot}></div>
-					<div className={styles.dot}></div>
-					<div className={styles.dot}></div>
+				{/*<div className={styles.menuIcon} ref={menuBtnRef} onClick={ontoggle} >*/}
+				{/*	<div className={styles.dot}></div>*/}
+				{/*	<div className={styles.dot}></div>*/}
+				{/*	<div className={styles.dot}></div>*/}
+				{/*	<div className={styles.dot}></div>*/}
+				{/*	<div className={styles.dot}></div>*/}
+				{/*	<div className={styles.dot}></div>*/}
+				{/*	<div className={styles.dot}></div>*/}
+				{/*	<div className={styles.dot}></div>*/}
+				{/*	<div className={styles.dot}></div>*/}
+				{/*</div>*/}
+				<div className={styles.aboutBtn}>
+					<Link href="/about">
+						About
+					</Link>
 				</div>
 			</div>
 		</>
