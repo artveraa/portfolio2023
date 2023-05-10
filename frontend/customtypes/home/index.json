@@ -24,43 +24,31 @@
       },
       "surname": {
         "type": "Text",
-        "config": {
-          "label": "Prénom",
-          "placeholder": ""
-        }
+        "config": { "label": "Prénom", "placeholder": "" }
       },
       "name": {
         "type": "Text",
-        "config": {
-          "label": "Nom",
-          "placeholder": ""
-        }
+        "config": { "label": "Nom", "placeholder": "" }
       },
       "job_part_1": {
         "type": "Text",
-        "config": {
-          "label": "Job part 1",
-          "placeholder": ""
-        }
+        "config": { "label": "Job part 1", "placeholder": "" }
       },
       "job_part_2": {
         "type": "Text",
-        "config": {
-          "label": "Job part 2",
-          "placeholder": ""
-        }
+        "config": { "label": "Job part 2", "placeholder": "" }
+      },
+      "home_gif": {
+        "type": "Image",
+        "config": { "label": "GIF ", "constraint": {}, "thumbnails": [] }
       },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "skills": {
-              "type": "SharedSlice"
-            },
-            "tools": {
-              "type": "SharedSlice"
-            }
+            "skills": { "type": "SharedSlice" },
+            "tools": { "type": "SharedSlice" }
           }
         }
       }

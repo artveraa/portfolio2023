@@ -36,6 +36,11 @@ body {
   font-variation-settings: 'wght' 100, 'wdth' 100;
 }
 
+a {
+  text-decoration: underline;
+  color: inherit;
+}
+
 h2 {
   font-size: 1rem;
   color: #FFFFFF;

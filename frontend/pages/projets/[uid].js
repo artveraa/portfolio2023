@@ -9,6 +9,7 @@ import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
 import {ScrollSmoother} from "gsap/dist/ScrollSmoother";
 import {PrismicRichText} from "@prismicio/react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Project = ({project}) => {
 
@@ -20,6 +21,7 @@ const Project = ({project}) => {
 
     useEffect(() => {
         setHasRendered(true);
+        console.log(project.data.repo_link.url);
     });
 
     const tagRef = useRef(null);
@@ -34,7 +36,7 @@ const Project = ({project}) => {
 
     useEffect(() => {
         if (hasRendered) {
-            console.log(project)
+            // console.log(project)
 
             gsap.set('#navbar', {position: 'relative'});
             gsap.from(tagRef.current, {
@@ -128,7 +130,7 @@ const Project = ({project}) => {
                             {project.data.side_image?.url && (
                                 <Image
                                     src={project.data.side_image.url}
-                                    alt={project.data.side_image.alt}
+                                    alt={project.data.side_image.url}
                                     width={project.data.side_image?.dimensions.width}
                                     height={project.data.side_image?.dimensions.height}
                                 />
@@ -147,7 +149,7 @@ const Project = ({project}) => {
                                 data-speed='auto'
                                 data-lag='0'
                                 src={project.data.big_image.url}
-                                alt={project.data.big_image.alt}
+                                alt={project.data.big_image.url}
                                 width={project.data.big_image?.dimensions.width}
                                 height={project.data.big_image?.dimensions.height}
                             />
@@ -163,14 +165,21 @@ const Project = ({project}) => {
                                     data-lag='0'
                                     width={project.data.second_image?.dimensions.width}
                                     height={project.data.second_image?.dimensions.height}
-                                    alt={project.data.second_image.alt}
+                                    alt={project.data.second_image.url}
                                 />
                             </div>
                         )}
                         <div className={styles.projectText} ref={projectTextRef}>
                             <PrismicRichText field={project.data.content}/>
+                            {project.data.repo_link.url && (
+                                <Link className={styles.repoLink} href={project.data.repo_link.url} target={'_blank'}>
+                                    Découvrir le projet
+                                </Link>
+                            )
+                            }
                         </div>
                     </div>
+
                 </div>
             </Layout>
         </>

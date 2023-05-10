@@ -7,46 +7,24 @@
     "Main": {
       "title": {
         "type": "Text",
-        "config": {
-          "label": "Titre",
-          "placeholder": ""
-        }
+        "config": { "label": "Titre", "placeholder": "" }
       },
-      "uid": {
-        "type": "UID",
-        "config": {
-          "label": "UID",
-          "placeholder": ""
-        }
-      },
+      "uid": { "type": "UID", "config": { "label": "UID", "placeholder": "" } },
       "category": {
         "type": "Select",
         "config": {
           "label": "Catégorie",
           "placeholder": "",
-          "options": [
-            "Front-end",
-            "Writing",
-            "Web design",
-            "Graphic design"
-          ]
+          "options": ["Front-end", "Writing", "Web design", "Graphic design"]
         }
       },
       "thumbnail": {
         "type": "Image",
-        "config": {
-          "label": "Vignette",
-          "constraint": {},
-          "thumbnails": []
-        }
+        "config": { "label": "Vignette", "constraint": {}, "thumbnails": [] }
       },
       "side_image": {
         "type": "Image",
-        "config": {
-          "label": "Image côté",
-          "constraint": {},
-          "thumbnails": []
-        }
+        "config": { "label": "Image côté", "constraint": {}, "thumbnails": [] }
       },
       "introduction": {
         "type": "StructuredText",
@@ -81,6 +59,10 @@
           "allowTargetBlank": true,
           "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
         }
+      },
+      "repo_link": {
+        "type": "Link",
+        "config": { "label": "Lien du repo", "placeholder": "", "select": null }
       }
     }
   }

@@ -47,7 +47,7 @@ export default function Home({home, projects, skills, tools}) {
                 <Banner banner={home}/>
                 {/*<SliceZone slices={home.data.slices} components={components}/>*/}
                 <Skills skills={skills}/>
-                <PortfolioGrid projects={projects}/>
+                <PortfolioGrid projects={projects} home={home}/>
                 <Tools tools={tools}/>
             </Layout>
         </>

@@ -2,8 +2,10 @@ import styles from '@/styles/PortfolioGrid.module.scss';
 import {Project} from "@/components/Project";
 import {useState, useEffect, useRef} from "react";
 import gsap from "gsap";
+import Link from "next/link";
+import Image from "next/image";
 
-const PortfolioGrid = ({projects}) => {
+const PortfolioGrid = ({projects, home}) => {
 
 	const [hasRendered, setHasRendered] = useState(false);
 
@@ -43,6 +45,17 @@ const PortfolioGrid = ({projects}) => {
 			{projects.map((project) => (
 				<Project project={project} key={project.id}/>
 			))}
+			<Link className={styles.portfolioGrid__item} href={'mailto:arthurvera96@gmail.com'}>
+				<div className={styles.inner}>
+					<Image
+						src={home.home_gif.url}
+						alt={home.home_gif.url}
+						width={home.home_gif.dimensions.width}
+						height={home.home_gif.dimensions.height}
+					/>
+					<h1>Votre projet ?</h1>
+				</div>
+			</Link>
 		</div>
 	);
 }
