@@ -61,6 +61,13 @@
       @media (max-width: 768px) {
         grid-column: 1 / 13;
         grid-row: 16 / span 4;
+
+        .inner {
+          h1 {
+            font-size: 4vw;
+            max-width: 90%;
+          }
+        }
       }
     }
 
