@@ -7,7 +7,6 @@ import {useRouter} from "next/router";
 import {useEffect, useState} from "react";
 import gsap from "gsap";
 import Footer from "@/components/Footer";
-import Menu from "@/components/Menu";
 
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 
