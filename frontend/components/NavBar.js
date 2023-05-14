@@ -32,11 +32,11 @@ const NavBar = () => {
 				{/*	<div className={styles.dot}></div>*/}
 				{/*	<div className={styles.dot}></div>*/}
 				{/*</div>*/}
-				<div className={styles.aboutBtn}>
-					<Link href="/about">
-						À propos
-					</Link>
-				</div>
+				{/*<div className={styles.aboutBtn}>*/}
+				{/*	<Link href="/about">*/}
+				{/*		À propos*/}
+				{/*	</Link>*/}
+				{/*</div>*/}
 			</div>
 		</>
 	);
