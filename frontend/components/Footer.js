@@ -65,9 +65,9 @@ const Footer = () => {
                 </div>
 
                 <div className={styles.footer__right}>
-                    <Link href={"https://www.linkedin.com/in/arthurvera/"} className={'social-item'}>LinkedIn</Link>
-                    <Link href={""} className={'social-item'}>Github</Link>
-                    <Link href={""} className={'social-item'}>Twitter</Link>
+                    <Link href={"https://www.linkedin.com/in/arthur-vera/"} className={'social-item'}>LinkedIn</Link>
+                    <Link href={"https://github.com/artveraa"} className={'social-item'}>Github</Link>
+                    <Link href={"https://twitter.com/artvera_"} className={'social-item'}>Twitter</Link>
                 </div>
             </div>
             <div className={styles.footer__bottom}>
