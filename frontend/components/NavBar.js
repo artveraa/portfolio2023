@@ -1,7 +1,9 @@
 import Link from 'next/link';
 import styles from '../styles/NavBar.module.scss';
+import logo from '../public/images/logo.png';
 import {useEffect, useRef, useState} from "react";
 import gsap from "gsap";
+import Image from "next/image";
 const NavBar = () => {
 
 
@@ -18,7 +20,9 @@ const NavBar = () => {
 
 			<div className={styles.navbar} id={'navbar'}>
 				<div className={styles.logo}>
-					<a href="/">arthurvera</a>
+					<a href="/">
+						<Image src={logo} alt="logo" width={131} height={37}/>
+					</a>
 
 				</div>
 				{/*<div className={styles.menuIcon} ref={menuBtnRef} onClick={ontoggle} >*/}
