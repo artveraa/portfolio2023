@@ -30,7 +30,7 @@ export default function Home({home, projects, skills, tools}) {
     return (
         <>
             <Head>
-                <title>Arthur Vera - Portfolio</title>
+                <title>Arthur Vera - Portfolio </title>
                 <meta name="description" content="First portfolio with Next.js"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <link rel="icon" href="/favicon.ico"/>
