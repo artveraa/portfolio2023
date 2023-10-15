@@ -61,7 +61,7 @@ const Footer = () => {
         <footer className={styles.footer} ref={footerRef}>
             <div className={styles.footer__container}>
                 <div className={styles.footer__left}>
-                    <Link href={"mailto:arthurvera96@gmail.com"} ref={getInTouchRef}>Get in touch <span>👋</span></Link>
+                    <Link href={"mailto:contact@arthurvera.fr"} ref={getInTouchRef}>Get in touch <span>👋</span></Link>
                 </div>
 
                 <div className={styles.footer__right}>
